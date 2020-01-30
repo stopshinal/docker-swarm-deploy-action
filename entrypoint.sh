@@ -27,6 +27,8 @@ if [ ${DOCKER_REMOTE_HOST#"ssh://"} != "$DOCKER_REMOTE_HOST" ]; then
     mkdir -p "$HOME/.ssh"
     echo "Made directory"
     printf '%s' "$DOCKER_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
+    echo "proof"
+    head -c 50 $HOME/.ssh/docker
     echo "Added private key"
     chmod 600 "$HOME/.ssh/docker"
     echo "Updated chmod"
