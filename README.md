@@ -26,9 +26,14 @@ Below are all of the supported environment variables. Some variables used to aut
 | - | - |
 | `DOCKER_REMOTE_HOST` | Docker daemon socket to connect to. |
 | `DOCKER_SSH_PUBLIC_KEY` | When connecting to Docker over SSH, this must contain the SSH public key of the server for verification. |
-| `DOCKER_SSH_PRIVATE_KEY` | When connecting to Docker over SSH, this must contain the SSH private key to use to connect. |
+| `DOCKER_SSH_PRIVATE_KEY` | PEM FORMAT! When connecting to Docker over SSH, this must contain the SSH private key to use to connect. |
 
 If you are deploying any private Docker images, you can use the [Docker Login](https://github.com/actions/docker/blob/master/login) action to first log in to your private registry, and then provide the `--with-registry-auth` flag to `docker stack deploy` to use the logged in credentials during deployment.
+
+## Convert OPENSSH to PEM format
+```
+ssh-keygen -p -m PEM -f ~/.ssh/docker
+```
 
 ## License
 
